@@ -116,7 +116,7 @@ public class Morph
         config.createIntBoolProperty("abilities", "morph.config.prop.abilities.name", "morph.config.prop.abilities.comment", false, true, true);
         config.createStringProperty("customPatchLink", "morph.config.prop.customPatchLink.name", "morph.config.prop.customPatchLink.comment", false, false, "");
 
-        config.createIntProperty("hostileAbilityMode", "morph.config.prop.hostileAbilityMode.name", "morph.config.prop.hostileAbilityMode.comment", true, false, 0, 0, 4);
+        config.createIntProperty("hostileAbilityMode", "morph.config.prop.hostileAbilityMode.name", "morph.config.prop.hostileAbilityMode.comment", true, false, 0, 0, 5);
         config.createIntProperty("hostileAbilityDistanceCheck", "morph.config.prop.hostileAbilityDistanceCheck.name", "morph.config.prop.hostileAbilityDistanceCheck.comment", true, false, 6, 0, 128);
 
         config.createIntProperty("disableEarlyGameFlight", "morph.config.prop.disableEarlyGameFlight.name", "morph.config.prop.disableEarlyGameFlight.comment", true, false, 0, 0, 2);
