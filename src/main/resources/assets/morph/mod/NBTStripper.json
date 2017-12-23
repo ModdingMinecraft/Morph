@@ -8,6 +8,11 @@
   ],
   
   
+  "forestry.lepidopterology.entities.EntityButterfly": [
+	"PLN",
+	"STATE",
+	"EXH"
+  ],
   "tropicraft.entities.hostile.land.SpiderAdult": [
     "maxEggsToSpawn"
   ],
@@ -25,5 +30,22 @@
 	"Tame",
 	"OwnerName",
 	"Items"
+  ],
+  "lycanite.lycanitesmobs.api.entity.EntityCreatureBase": [
+	"Size",
+	"Stealth",
+	"Items",
+	"FirstSpawn",
+	"Following",
+	"ForceNoDespawn",
+	"HasBeenFarmed",
+	"IsBoundPet",
+	"IsMinion",
+	"IsTemporary",
+	"Leashed",
+	"Passive",
+	"PVP",
+	"Sitting",
+	"TemporaryDuration"
   ]
 }
