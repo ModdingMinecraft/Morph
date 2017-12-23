@@ -13,3 +13,10 @@
 /build
 /libs
 /src/api
+
+.classpath
+.gradle/
+.project
+.settings/
+build/
+eclipse/
