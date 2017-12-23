@@ -51,6 +51,7 @@ public class CommandMorph extends CommandBase
                 icommandsender.addChatMessage(new ChatComponentTranslation("morph.command.demorph").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GRAY)));
                 icommandsender.addChatMessage(new ChatComponentTranslation("morph.command.clear").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GRAY)));
                 icommandsender.addChatMessage(new ChatComponentTranslation("morph.command.morphtarget").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GRAY)));
+                icommandsender.addChatMessage(new ChatComponentTranslation("morph.command.morph").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GRAY)));
                 icommandsender.addChatMessage(new ChatComponentTranslation("morph.command.addtolist").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GRAY)));
                 icommandsender.addChatMessage(new ChatComponentTranslation("morph.command.removefromlist").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GRAY)));
             }
@@ -259,6 +260,33 @@ public class CommandMorph extends CommandBase
                 }
                 else if(args.length > 1)
                 {
+                    icommandsender.addChatMessage(new ChatComponentTranslation("morph.command.cannotFindPlayer", args[1]));
+                }
+            }
+            else if (args[0].equalsIgnoreCase("morph")) {
+                EntityPlayerMP player;
+                if (args.length > 2) {
+                    player = PlayerSelector.matchOnePlayer(icommandsender, args[1]);
+                }
+                else {
+                    player = getCommandSenderAsPlayer(icommandsender);
+                }
+                if (player == null) {
+                    player = MinecraftServer.getServer().getConfigurationManager().func_152612_a(args[1]);
+                }
+                if (player != null) {
+                    Entity ent = EntityList.createEntityByName(args[2].trim(), player.worldObj);
+                    if (ent instanceof EntityLivingBase) {
+                        EntityLivingBase living = ent;
+                        if (!EntityHelper.morphPlayer(player, living, false, true)) {
+                            icommandsender.addChatMessage(new ChatComponentTranslation("morph.command.morphError", player.getCommandSenderName()));
+                        }
+                        else {
+                            func_152373_a(icommandsender, this, "morph.command.forcingMorphViaCommand", new Object[] { player.getCommandSenderName(), args[2].trim() });
+                        }
+                    }
+                }
+                else if (args.length > 1) {
                     icommandsender.addChatMessage(new ChatComponentTranslation("morph.command.cannotFindPlayer", args[1]));
                 }
             }
