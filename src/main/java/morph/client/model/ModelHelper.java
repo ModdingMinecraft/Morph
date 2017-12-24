@@ -45,7 +45,8 @@ public class ModelHelper
 				ModelRenderer cube = modelList.get(i);
                 if(cube.compiled)
                 {
-                    GLAllocation.deleteDisplayLists(cube.displayList);
+                    if(cube.displayList != null)
+                        GLAllocation.deleteDisplayLists(cube.displayList);
                     cube.compiled = false;
                 }
 			}
